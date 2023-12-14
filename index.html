@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Mouse cursor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            background-color: black;
+            cursor: none;
+        }
+
+        .cs,
+        .cb {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid white;
+            cursor: none;
+            z-index: 20;
+        }
+
+        .cs {
+            width: 5px;
+            height: 5px;
+            background-color: white;
+            transform: translate(-50%, -50%);
+            transition: .2s;
+        }
+
+        .cb {
+            width: 20px;
+            height: 20px;
+            transform: translate(-50%, -50%);
+        }
+
+        #menu {
+            width: 100px;
+            height: 150px;
+            background-color: cornflowerblue;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            display: none;
+
+            >li {
+                list-style-type: none;
+                width: 100%;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: .4s;
+
+                &:hover {
+                    background-color: rgb(44, 78, 136);
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cs"></div>
+    <div class="cb"></div>
+    <ul id="menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li>menu4</li>
+        <li>menu5</li>
+    </ul>
+    <script src="master.js"></script>
+</body>
+
+</html>
