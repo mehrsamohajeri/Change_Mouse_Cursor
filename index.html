@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syntax-7</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            background-color: black;
+            cursor: none;
+        }
+
+        .cs,
+        .cb {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid white;
+            cursor: none;
+            z-index: 20;
+        }
+
+        .cs {
+            width: 5px;
+            height: 5px;
+            background-color: white;
+            transform: translate(-50%, -50%);
+            transition: .2s;
+        }
+
+        .cb {
+            width: 20px;
+            height: 20px;
+            transform: translate(-50%, -50%);
+        }
+
+        #menu {
+            width: 100px;
+            height: 150px;
+            background-color: cornflowerblue;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            display: none;
+
+            >li {
+                list-style-type: none;
+                width: 100%;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: .4s;
+
+                &:hover {
+                    background-color: rgb(44, 78, 136);
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cs"></div>
+    <div class="cb"></div>
+    <ul id="menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li>menu4</li>
+        <li>menu5</li>
+    </ul>
+    <script>
+        let cs = document.querySelector(".cs")
+        let cb = document.querySelector(".cb")
+        let body = document.querySelector("body")
+        let menu = document.querySelector("#menu")
+        let width = body.clientWidth
+        let height = body.clientHeight
+        console.log(width)
+        console.log(height)
+        body.addEventListener("mousemove", (e) => {
+            let x = e.clientX
+            let y = e.clientY
+            cs.style.top = y + "px"
+            cs.style.left = x + "px"
+            cb.style.top = y + "px"
+            cb.style.left = x + "px"
+        })
+        document.querySelector("body").addEventListener("mousedown", (e) => {
+            cs.style.transform = "translate(-50%, -50%)scale(1.5)"
+            cb.style.transform = "translate(-50%, -50%)scale(.5)"
+        })
+        document.querySelector("body").addEventListener("mouseup", (e) => {
+            cs.style.transform = "translate(-50%, -50%)scale(1)"
+            cb.style.transform = "translate(-50%, -50%)scale(1)"
+        })
+
+        body.addEventListener("contextmenu", (e) => {
+            e.preventDefault()
+            let x = e.clientX
+            let y = e.clientY
+            menu.style.display = "flex"
+            if ((x + 100) <= width) {
+                menu.style.removeProperty("right")
+                menu.style.left = x + "px"
+            }
+            else {
+                menu.style.removeProperty("left")
+                menu.style.right = (width - x) + "px"
+            }
+            if ((y + 150) <= height) {
+                menu.style.removeProperty("bottom")
+                menu.style.top = y + "px"
+            }
+            else {
+                menu.style.removeProperty("top")
+                menu.style.bottom = (height - y) + "px"
+            }
+        })
+
+        window.addEventListener("click", () => {
+            menu.style.display = "none"
+        })
+    </script>
+</body>
+
+</html>
