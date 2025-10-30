@@ -4,7 +4,7 @@
 
 https://github.com/Mehrsa-Mohajeri-Developer/Change_Mouse_Cursor/assets/145048780/1b4f1165-c7f8-4574-b805-d40d244d8118
 
-- 🔗 [Demo Project](https://mehrsa-mohajeri-developer.github.io/Change_Mouse_Cursor/)
+- 🔗 [Demo Project](https://mehrsamohajeri.github.io/Change_Mouse_Cursor/)
   
 - 👩🏻‍💻 Developed by Mehrsa Mohajeri
 
